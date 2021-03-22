@@ -10,7 +10,7 @@
  * http://www.eclipse.org/org/documents/edl-v10.php.
  */
 
-package org.fobermaier.jts;
+package io.github.fobermaier.jts;
 
 import java.io.File;
 

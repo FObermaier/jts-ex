@@ -9,13 +9,13 @@
  *
  * http://www.eclipse.org/org/documents/edl-v10.php.
  */
-package org.fobermaier.jts.hull;
+package io.github.fobermaier.jts.algorithm;
 
 import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
-import org.fobermaier.jts.TestFiles;
-import org.fobermaier.jts.algorithm.ConcaveHullExcavator;
+import io.github.fobermaier.jts.TestFiles;
+import io.github.fobermaier.jts.algorithm.ConcaveHullExcavator;
 import org.locationtech.jts.algorithm.ConvexHull;
 import org.locationtech.jts.algorithm.match.HausdorffSimilarityMeasure;
 import org.locationtech.jts.geom.Geometry;
@@ -33,7 +33,7 @@ public class ConcaveHullExcavatorTest extends TestCase {
 
   private static final WKTReader reader = new WKTReader();
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     TestRunner.run(ConcaveHullExcavatorTest.class);
   }
 

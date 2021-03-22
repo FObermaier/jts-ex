@@ -9,7 +9,7 @@
  *
  * http://www.eclipse.org/org/documents/edl-v10.php.
  */
-package org.fobermaier.jts.algorithm;
+package io.github.fobermaier.jts.algorithm;
 
 import java.util.*;
 
@@ -67,7 +67,8 @@ public class ConcaveHullExcavator {
    * {@link ConcaveHullExcavator#compute(Geometry, double)} functions.
    * <p/>
    * If not set using this method, a value of {@code 0.5} is used.
-   * @param concavity
+   * @param concavity A value influencing the concavity of the hull.
+   *                  This value is <b>application specific</b>.
    */
   public static void setDefaultConcavity(double concavity) {
     defaultConcavity = concavity;
@@ -330,7 +331,7 @@ public class ConcaveHullExcavator {
                                    Coordinate a, Coordinate b, Coordinate c, Coordinate d,
                                    double maxDistanceMeasure, SpatialIndex segmentTree) {
 
-    PriorityQueue queue = new PriorityQueue();
+    PriorityQueue<PqItemDistance> queue = new PriorityQueue<>();
     AbstractNode node = candidatesTree.getRoot();
 
     // search the candidate index with a depth-first search using a priority queue
@@ -351,8 +352,8 @@ public class ConcaveHullExcavator {
         queue.add(new PqItemDistance(child, distanceMeasure));
       }
 
-      while (queue.size() > 0 && isLeaf(((PqItemDistance)queue.peek()).item)) {
-        PqItemDistance item = (PqItemDistance)queue.poll();
+      while (queue.size() > 0 && isLeaf((queue.peek()).item)) {
+        PqItemDistance item = queue.poll();
         Coordinate p = (Coordinate) ((ItemBoundable)item.item).getItem();
 
         // skip all points that are as close to adjacent segments a->b and c->d,
@@ -366,7 +367,7 @@ public class ConcaveHullExcavator {
         }
       }
 
-      PqItemDistance pqNode = (PqItemDistance) queue.poll();
+      PqItemDistance pqNode = queue.poll();
       if (pqNode != null)
         node = (AbstractNode) pqNode.item;
       else

@@ -4,14 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.fobermaier.jtsex</groupId>
+    <groupId>io.github.fobermaier.jts-ex</groupId>
     <artifactId>jts-core-ex</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.18-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JTS Topology Suite Extensions</name>
-    <url>https://github.com/FObermaier/jtsex</url>
-    <description>Concave Hull and Squared Distance for JTS Topology Suite</description>
+    <url>https://github.com/FObermaier/jts-ex</url>
+    <description>Concave Hull Excavator and Squared Distance for JTS Topology Suite</description>
+
+    <scm>
+        <url>https://github.com/FObermaier/jts-ex</url>
+        <connection>scm:git::git@github.com:FObermaier/jts-ex.git</connection>
+        <developerConnection>scm:git:git@github.com:FObermaier/jts-ex.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <dependencies>
         <dependency>
